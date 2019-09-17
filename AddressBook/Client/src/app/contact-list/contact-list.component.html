@@ -1,0 +1,27 @@
+<div class=" m-4 col col-4 float-left mr-3 overflow-hidden">
+  <div>
+    <h5 class="font-weight-bold mb-4">CONTACTS</h5>
+  </div>
+  <div class="height-class" *ngIf="contactlist.length>0">
+    <div class="contactlist list-group">
+      <div *ngFor="let contact of contactlist" class="list-group-item ">
+        <a class="list-group-item-action" routerLink="display/{{contact.id}}">
+          <div title="Display Contact Details">
+              <p class="mb-1 name-size" >{{contact.name}}</p> 
+              <div>{{contact.email}}</div>
+              <div>{{contact.mobile}}</div>
+          </div>
+        </a>
+      </div> 
+    </div>
+  </div>
+  <div *ngIf="contactlist.length==0">
+      <p class="font-weight-bold name-size">No Contacts Found</p>
+  </div>
+</div>
+<router-outlet ></router-outlet>
+<!-- (deactivate)="AddContact($event)" -->
+<!-- <router-outlet
+(activate)='onActivate($event)'
+(deactivate)='onDeactivate($event)'>
+</router-outlet> -->

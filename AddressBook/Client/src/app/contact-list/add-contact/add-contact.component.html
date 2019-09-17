@@ -1,0 +1,63 @@
+<div class="container-field col col-6 ml-5 m-4  panel shadow-lg float-left height-class">
+    <form [formGroup]="contactform">
+        <div class="m-3 mr-5 pr-5 font-weight-bold ">
+
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input [class.is-invalid]="name.invalid && name.touched" type="text" class="form-control" formControlName="name">
+                <small [class.d-none]="name.valid || name.untouched" class="text-danger">UserName is Required</small>
+            </div>
+
+            <div class=" form-group">
+                <label class="control-label">Email</label>
+                <input [class.is-invalid]="email.invalid && email.touched" type="email" class="form-control" formControlName="email">
+                <div *ngIf="email.invalid && email.touched">
+                        <small *ngIf="email.errors?.required" class="text-danger">Email Field Cannot be Empty</small>
+                        <small *ngIf="email.errors?.pattern" class="text-danger">Please Enter a Valid Email Address</small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col">
+                    <label class="control-label">Mobile</label>
+                    <input [class.is-invalid]="mobile.invalid && mobile.touched" type="text" class="form-control" formControlName="mobile">
+                    <div *ngIf="mobile.invalid && mobile.touched">
+                        <small *ngIf="mobile.errors?.required" class="text-danger">Mobile Number Cannot be Empty</small>
+                        <small *ngIf="mobile.errors?.pattern"  class="text-danger">Please Enter a Valid Mobile Number</small>
+                        <small *ngIf="mobile.errors?.minlength && !mobile.errors?.pattern" class="text-danger">Mobile Number Must be minimum 10 digits</small>
+                    </div>
+                </div>
+
+                <div class="form-group col">
+                    <label>Landline</label>
+                    <input type="text" class="form-control" formControlName="landline">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Website</label>
+                <input type="text" class="form-control" formControlName="website">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Address</label>
+                <textarea [class.is-invalid]="address.invalid && address.touched" class="form-control" rows="3" formControlName="address"></textarea>
+                <small [class.d-none]="address.valid || address.untouched" class="text-danger">Address is Required</small>
+            </div>
+        </div>
+
+        <div *ngIf="selected_contact!=undefined">
+            <button [disabled]="contactform.invalid" type="button" class="btn btn-success btn-lg float-right mb-4 mr-2" (click)="updateContact(contactform.value)">Update</button>
+        </div>
+
+        <div *ngIf="selected_contact==undefined">
+            <button [disabled]="contactform.invalid" type="button" class="btn btn-success btn-lg float-right mb-4 mr-2" (click)="addContact(contactform.value)">Add</button>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-success btn-lg float-right mb-4 mr-2" (click)="cancel()">Cancel</button>
+        </div>
+
+    </form>
+</div>
+  

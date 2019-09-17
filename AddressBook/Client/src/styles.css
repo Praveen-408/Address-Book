@@ -1,0 +1,16 @@
+.point
+{
+    cursor: pointer
+}
+body{
+    margin: 0;
+    font-family: Roboto,"Helvetica Neue",sans-serif; 
+}
+.control-label:after {
+    content:" *";
+    color:red;
+  }
+
+#toast-container > div {
+  opacity: 1;
+}

@@ -1,0 +1,33 @@
+<div class="row m-4" *ngIf="selected_contact">
+    <div class="container-field col col-8 ml-5 m-5 panel  float-right">
+    
+        <div class="row">
+    
+            <h3 class="col-sm-8">{{selected_contact.name}}</h3>
+    
+            <div class="col-sm-2 point"  routerLink="../../edit/contact/{{selected_contact.id}}" title="Edit Contact">
+                    <img class="width-class" src="/assets/edit1.jpg"><b>EDIT</b>
+            </div>
+    
+            <div class="col-sm-2 d-flex point"  title="Delete Contact" (click)="deleteContact()">
+                    <img class="width-class" src="/assets/delete2.png"><b>DELETE</b>
+            </div>
+    
+        </div>
+    <div>
+        <div>
+            <p>Email : {{selected_contact.email}}</p>
+        </div>
+        <div>
+            <div>Mobile: {{selected_contact.mobile}}</div>    
+            <div>Landline: {{selected_contact.landline}}</div>
+        </div>
+        <div class="mt-4">
+            <p>Website: {{selected_contact.website}}</p>
+        </div>
+            <p>Address: {{selected_contact.address}} </p>
+    </div>
+        
+</div>
+</div>
+<router-outlet></router-outlet>
